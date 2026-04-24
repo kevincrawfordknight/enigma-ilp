@@ -8,6 +8,8 @@ setting exists.
 
 Kevin Knight (2010, then again in 2024).
 
+📄 **Paper:** [Enigma via ILP](https://kevincrawfordknight.github.io/ciphers/enigma-ilp-2026.pdf)
+
 ## What the model can do
 
 You can fix any combination of:
