@@ -1,0 +1,33 @@
+
+ILP for Enigma
+knight (2010, then again in 2024)
+
+y4.py creates y4.ilp, an integer linear program (ILP) that captures the workings of 
+a "demo" Enigma machine with a 4-letter vocabulary. 
+
+y26.py does the same for the real Enigma machine.
+
+We can choose to assign fixed values to any of the following:
+
+ - Selection and positioning of available rotors
+ - Choice of indicator settings
+ - Choice of ring settings
+ - Choice of steckboard wiring
+ - Choice of available reflectors
+ - Any or all ciphertext letters
+ - Any or all plaintext letters
+
+Setting all of them enables us to check the model -- we can ensure there is an
+ILP solution, given the constraints, and we can inspect which wires get 
+electrical current.
+
+If we withhold some of the values, we ask the ILP solver to look for values that
+work within the constraints of the model.
+
+For example, we may withhold the ciphertext, in which case, the ILP solver
+figures out which cipher letters are consistent with the plaintext and the key
+(in this case, there is a singular solution).
+
+Usually, the ILP objective is to satisfy the hard constraints of the model while 
+minimizing the number of steckboard wires.
+

@@ -1,0 +1,10 @@
+
+A=$1
+./getall $A | 
+grep Plain | 
+sed 's/........//'  | 
+sed 's/ A *$//'  |
+tr ' ' '\n' |
+awk 'NR>0' >z.guess
+paste -d ' ' z.guess z.gold |
+awk 'BEGIN {a=0} {if ($1!=$2) a++} END {printf("%d\n", a)}'

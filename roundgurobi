@@ -1,0 +1,2 @@
+
+awk '{if ($NF < 0.5) $NF=0; else if ($NF > 0.5) $NF=1; printf("%s\n",$0)}' 

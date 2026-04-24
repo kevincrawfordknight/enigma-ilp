@@ -1,0 +1,6 @@
+
+./getall y26.sol | 
+grep Plain | 
+sed 's/........//'  |
+sed 's/. *$//' 
+

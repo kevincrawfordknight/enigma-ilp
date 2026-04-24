@@ -1,0 +1,10 @@
+
+# puts unigram -logprobs, one per line, for A-Z
+
+cat eng.uni |
+tr -d '_' |
+sort | uniq -c |
+awk 'NF>1' >eng.uni.counts
+
+cat eng.uni.counts |
+awk '{printf("%f, ",-log($1/56478)/log(2))} END {printf("\n")}' >eng.uni.logprobs

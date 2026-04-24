@@ -1,0 +1,38 @@
+
+#cat y26.sol | 
+grep 'init.*1$' | 
+sed 's/\./ /g' | 
+sort -k 3,3 | 
+awk '{printf("%d rotor %d, ind %d, ring %d\n",$3, $2,$4,$5)}' | 
+sed 's/rotor 2/rotor III/' | 
+sed 's/rotor 1/rotor II/' | 
+sed 's/rotor 0/rotor I/' | 
+sed 's/^0/left/' | 
+sed 's/^1/middle/' | 
+sed 's/^2/right/' |
+sed 's/25/Z/g' | 
+sed 's/24/Y/g' | 
+sed 's/23/X/g' | 
+sed 's/22/W/g' | 
+sed 's/21/V/g' |
+sed 's/20/U/g' |
+sed 's/19/T/g' |
+sed 's/18/S/g' |
+sed 's/17/R/g' |
+sed 's/16/Q/g' |
+sed 's/15/P/g' |
+sed 's/14/O/g' |
+sed 's/13/N/g' |
+sed 's/12/M/g' |
+sed 's/11/L/g' |
+sed 's/10/K/g' |
+sed 's/9/J/g' |
+sed 's/8/I/g' |
+sed 's/7/H/g' |
+sed 's/6/G/g' |
+sed 's/5/F/g' |
+sed 's/4/E/g' |
+sed 's/3/D/g' |
+sed 's/2/C/g' |
+sed 's/1/B/g' |
+sed 's/0/A/g' 

@@ -1,0 +1,9 @@
+
+rm -f y4.int_*
+
+python y4.py >y4.ilp
+
+gurobi_cl ResultFile=y4.sol y4.ilp
+
+cat y4.sol | grep '1$' 
+

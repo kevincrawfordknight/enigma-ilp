@@ -1,0 +1,75 @@
+
+for A in `ls y26*sol`
+do
+# Pretty-prints the output of the ILP solver, showing Enigma settings,
+# plaintext, and ciphertext.
+
+# rounding 
+
+  echo '==='
+  echo $A
+  echo '==='
+
+  cat $A | ./roundgurobi >$A.rounded
+
+# rotors
+
+  cat $A.rounded |
+  grep 'init.*1$' | 
+  sed 's/\./ /g' | 
+  sort -k 3,3 | 
+  awk '{printf("%d rotor %d, ind %d, ring %d\n",$3, $2,$4,$5)}' | 
+  sed 's/rotor 2/rotor III/' | 
+  sed 's/rotor 1/rotor II/' | 
+  sed 's/rotor 0/rotor I/' | 
+  sed 's/^0/Left/' | 
+  sed 's/^1/Middle/' | 
+  sed 's/^2/Right/' |
+  sed 's/25/Z/g' | sed 's/24/Y/g' | sed 's/23/X/g' | sed 's/22/W/g' | sed 's/21/V/g' | sed 's/20/U/g' | sed 's/19/T/g' | sed 's/18/S/g' | sed 's/17/R/g' | sed 's/16/Q/g' | sed 's/15/P/g' | sed 's/14/O/g' | sed 's/13/N/g' | sed 's/12/M/g' | sed 's/11/L/g' | sed 's/10/K/g' | sed 's/9/J/g' | sed 's/8/I/g' | sed 's/7/H/g' | sed 's/6/G/g' | sed 's/5/F/g' | sed 's/4/E/g' | sed 's/3/D/g' | sed 's/2/C/g' | sed 's/1/B/g' | sed 's/0/A/g' 
+
+# stecker
+
+  cat $A.rounded |
+  grep 'wire.s.*1$' | 
+sed 's/\./ /g' | 
+awk '{if ($3<$4) printf("%d %d\n",$3,$4)}' |
+sed 's/25/Z/g' | sed 's/24/Y/g' | sed 's/23/X/g' | sed 's/22/W/g' | sed 's/21/V/g' | sed 's/20/U/g' | sed 's/19/T/g' | sed 's/18/S/g' | sed 's/17/R/g' | sed 's/16/Q/g' | sed 's/15/P/g' | sed 's/14/O/g' | sed 's/13/N/g' | sed 's/12/M/g' | sed 's/11/L/g' | sed 's/10/K/g' | sed 's/9/J/g' | sed 's/8/I/g' | sed 's/7/H/g' | sed 's/6/G/g' | sed 's/5/F/g' | sed 's/4/E/g' | sed 's/3/D/g' | sed 's/2/C/g' | sed 's/1/B/g' | sed 's/0/A/g' |
+tr -d ' ' |
+tr '\n' ' ' |
+cat
+
+echo ""
+
+# reflector
+
+cat $A.rounded |
+grep reflector | 
+grep '1$' | 
+tr '.' ' ' | 
+awk '{if ($2==1) printf("Reflector C\n"); else printf("Reflector B\n")}'
+
+# plain & cipher text
+
+cat $A.rounded |
+grep 'plain.*1$' | 
+tr  '.' ' ' | 
+sort -n -k 3,3 | 
+awk '{print $2}' |
+tr '\n' ' ' |
+sed 's/25/Z/g' | sed 's/24/Y/g' | sed 's/23/X/g' | sed 's/22/W/g' | sed 's/21/V/g' | sed 's/20/U/g' | sed 's/19/T/g' | sed 's/18/S/g' | sed 's/17/R/g' | sed 's/16/Q/g' | sed 's/15/P/g' | sed 's/14/O/g' | sed 's/13/N/g' | sed 's/12/M/g' | sed 's/11/L/g' | sed 's/10/K/g' | sed 's/9/J/g' | sed 's/8/I/g' | sed 's/7/H/g' | sed 's/6/G/g' | sed 's/5/F/g' | sed 's/4/E/g' | sed 's/3/D/g' | sed 's/2/C/g' | sed 's/1/B/g' | sed 's/0/A/g' |
+sed 's/^/Plain : /' |
+cat - space
+
+cat $A.rounded |
+egrep 'cipher.*(1|+00)$' | 
+tr  '.' ' ' | 
+sort -n -k 3,3 | 
+awk '{print $2}' |
+tr '\n' ' ' |
+sed 's/25/Z/g' | sed 's/24/Y/g' | sed 's/23/X/g' | sed 's/22/W/g' | sed 's/21/V/g' | sed 's/20/U/g' | sed 's/19/T/g' | sed 's/18/S/g' | sed 's/17/R/g' | sed 's/16/Q/g' | sed 's/15/P/g' | sed 's/14/O/g' | sed 's/13/N/g' | sed 's/12/M/g' | sed 's/11/L/g' | sed 's/10/K/g' | sed 's/9/J/g' | sed 's/8/I/g' | sed 's/7/H/g' | sed 's/6/G/g' | sed 's/5/F/g' | sed 's/4/E/g' | sed 's/3/D/g' | sed 's/2/C/g' | sed 's/1/B/g' | sed 's/0/A/g' |
+sed 's/^/Cipher: /' |
+cat - space
+
+echo ''
+
+done

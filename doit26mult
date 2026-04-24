@@ -1,0 +1,9 @@
+
+rm -f y26.int_*
+
+python y26.py >y26.ilp
+
+gurobi_cl PoolSearchMode=2 PoolSolutions=5 SolFiles=y26.int ResultFile=y26.sol y26.ilp
+
+#cat y26.sol | grep '1$' 
+
