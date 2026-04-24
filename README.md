@@ -8,7 +8,7 @@ setting exists.
 
 Kevin Knight (2010, then again in 2024).
 
-📄 **Paper:** [Enigma via ILP](https://kevincrawfordknight.github.io/ciphers/enigma-ilp-2026.pdf)
+📄 **Paper:** [Modeling ENIGMA with Integer Linear Programming (Histocrypt 2026)](https://kevincrawfordknight.github.io/ciphers/enigma-ilp-2026.pdf)
 
 ## What the model can do
 
