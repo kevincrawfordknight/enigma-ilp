@@ -1,0 +1,52 @@
+Running HiGHS 1.14.0 (git hash: 7df0786): Copyright (c) 2026 under MIT licence 1
+MIP y4 has 1001 rows; 1210 cols; 4382 nonzeros; 586 integer variables (586 1
+Coefficient 1
+Matrix [1e+00, 1
+Cost [1e+00, 1
+Bound [1e+00, 1
+RHS [1e+00, 1
+Presolving 1
+880 rows, 1092 cols, 4055 nonzeros 1
+681 rows, 893 cols, 3874 nonzeros 1
+624 rows, 884 cols, 3473 nonzeros 1
+Presolve reductions: rows 624(-377); columns 884(-326); nonzeros 1
+0
+Solving MIP model 1
+624 1
+884 cols (494 binary, 0 integer, 0 implied int., 390 continuous, 0 domain 1
+3473 1
+0
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => 1
+I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized 1
+S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS 1
+Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial 1
+0
+Nodes | B&B Tree | Objective Bounds | Dynamic Constraints | 1
+Src Proc. InQueue | Leaves Expl. | BestBound BestSol Gap | Cuts InLp Confl. | LpIters 1
+0
+0 0 0 0.00% 4 -inf inf 0 0 0 0 0
+0 0 0 0.00% 4 -inf inf 0 0 8 753 0
+L 0 0 0 100.00% 4 4 0.00% 3571 57 206 1989 1
+1 0 1 100.00% 4 4 0.00% 3571 57 206 2268 1
+0
+Solving 1
+Model 1
+Status 1
+Primal bound 1
+Dual bound 1
+Gap 0% (tolerance: 0
+P-D integral 0
+Solution status 1
+4 0
+0 (bound 1
+0 (int. 1
+0 (row 1
+Timing 1
+Max sub-MIP depth 1
+Nodes 1
+Repair LPs 0
+LP iterations 1
+0 (strong 1
+1236 0
+279 0
+Writing the solution to 1

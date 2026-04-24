@@ -137,7 +137,6 @@ print("Subject To")
 pt = "KEVINKNIGHT"
 for i in range(0, len(pt)):
     print(f"plaintext.{ord(pt[i])-ord('A')}.{i} = 1")
-'''
 
 # KEVINKNIGHT MINSTECK
 
@@ -160,31 +159,37 @@ for i in range(0, len(ct)):
     print(f"ciphertext.{ord(ct[i])-ord('A')}.{i+1} = 1")
 
 print(" reflector.1 = 1")
-
 '''
-# AAAAA
+
+# AAA
 
 print("Maximize")
 
-print(" ciphertext.25.1 + ciphertext.25.2 + ciphertext.25.3 + ciphertext.25.4 + ciphertext.25.5")
+#print(" ciphertext.25.1 + ciphertext.25.2 + ciphertext.25.3 + ciphertext.25.4 + ciphertext.25.5")
+#print(" ciphertext.25.1 + ciphertext.25.2 + ciphertext.25.3")
+print(" ciphertext.25.1")
 
 print("Subject To")
 
-pt = "AAAAA"
+pt = "AAAA"
 for i in range(0, len(pt)):
     print(f"plaintext.{ord(pt[i])-ord('A')}.{i} = 1")
 
-#ct = "ZZZZZ"
-#for i in range(0, len(ct)):
-#    print(f"ciphertext.{ord(ct[i])-ord('A')}.{i+1} = 1")
-'''
+timesteps = len(pt) + 1
+
+ct = "ZZZZ"
+for i in range(0, len(ct)):
+   print(f"ciphertext.{ord(ct[i])-ord('A')}.{i+1} = 1")
+
+for i in range(0, alphabetsize):
+    print(f" wire.s.{i}.{i} = 1")
 
 ########################################################################
 ### General speedup heuristics (can be added to any problem)
 ########################################################################
 
 # GENERAL HEURISTIC: Fix the left rotor's ring setting to A. Indicator can compensate.
-'''
+
 for w in range(0, rotorinventory):
     for p in range(0, rotorpositions):
         for m in range(0, alphabetsize):
@@ -192,7 +197,7 @@ for w in range(0, rotorinventory):
                 if (p==0) and (r==0):
                     print(f" + init.{w}.{p}.{m}.{r}", end='')
 print(" = 1")
-'''
+
 # GENERAL HEURISTIC: Fix the middle rotor's notch setting so that left rotor never turns.
 
 #print("notch.1.13 = 1")

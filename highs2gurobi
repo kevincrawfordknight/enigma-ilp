@@ -1,0 +1,10 @@
+#!/bin/bash
+# Convert a HiGHS pretty-style solution file to Gurobi-style "name value" lines.
+# Reads stdin, writes stdout.
+
+awk '
+    /^Columns/ { in_cols=1; next }
+    /^Rows/    { in_cols=0; next }
+    in_cols && $1 == "Index" { next }
+    in_cols && NF >= 6 { printf("%s %s\n", $NF, $(NF-2)) }
+'

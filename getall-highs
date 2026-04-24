@@ -1,0 +1,6 @@
+#!/bin/bash
+# Pretty-prints a HiGHS solution file (pretty format, style=1) by converting
+# it to Gurobi-style "name value" lines and handing off to getall.
+
+cat "$1" | ./highs2gurobi > "$1.gurobi"
+./getall "$1.gurobi"

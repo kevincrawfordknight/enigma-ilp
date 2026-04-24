@@ -1,0 +1,14 @@
+#!/bin/bash
+# Usage: ./highs-cli <model.lp>
+# Writes <model>.sol alongside the input.
+
+IN="$1"
+OUT="${IN%.lp}.sol"
+
+python3 -c "
+import highspy
+h = highspy.Highs()
+h.readModel('$IN')
+h.run()
+h.writeSolution('$OUT', 1)
+"

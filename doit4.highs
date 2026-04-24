@@ -1,0 +1,5 @@
+
+python y4.py >y4.lp
+
+./highs-cli y4.lp   # solution is in y4.sol
+

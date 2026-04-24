@@ -1,0 +1,6 @@
+
+
+python3 y26.py >y26.lp
+
+./highs-cli y26.lp   # solution is in y26.sol
+
